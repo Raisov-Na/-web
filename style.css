@@ -61,6 +61,14 @@ main h3{
     margin-top: 10px;
     margin-bottom: 5px;
 }
+main .faq {
+	float: left;
+	width: 855px;
+}
+main .faq p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 footer {
 	overflow: auto;
 	padding: 10px;
