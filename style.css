@@ -43,6 +43,7 @@ main{
     background: white;
     overflow: auto;
     padding: 20px;
+    height: 680px;
 }
 main .main_block{
     float: left;
@@ -60,6 +61,13 @@ main h2{
 main h3{
     margin-top: 10px;
     margin-bottom: 5px;
+}
+ul{
+	list-style: circle;
+	list-style-position: inside;
+}
+.sitemap li {
+	list-style: none;
 }
 main .faq {
 	float: left;
