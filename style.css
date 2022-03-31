@@ -69,19 +69,6 @@ ul{
 .sitemap li {
 	list-style: none;
 }
-.tabs a span {
-    color: black;
-    display: inline-block;
-    border-radius: 5px 5px 0 0;
-    width: 120px;
-    margin-right: 10px;
-    text-align: center;
-    background: #ccc;
-    padding: 8px;
-}
-.tabs a span.active {
-    background: #eee;
-}
 main .faq {
 	float: left;
 	width: 855px;
@@ -101,4 +88,16 @@ footer .contact {
 footer .sitemap {
 	float: right;
 	width: 285px;
+}
+.tabs a span {
+    display: inline-block;
+    border-radius: 5px 5px 0 0;
+    width: 120px;
+    margin-right: 10px;
+    text-align: center;
+    background: #b7b7b7;
+    padding: 5px;
+}
+.tabs a span.active {
+    background: #e0e0e0;
 }
