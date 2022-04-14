@@ -86,6 +86,24 @@ var main = function (toDoObjects) {
 							$('.inp').val("");
 						}
 					})
+					var $input = $("<input>").addClass("description"),
+					$inputLabel = $("<h5>").text("Новая задача: "),
+					$tagInput = $("<input>").addClass("tags"),
+					$tagLabel = $("<h5>").text("Тэги: "),
+					$button = $("<button>").text("+");
+					$button.on("click", function () {
+						var description = $input.val(),
+						// разделение в соответствии с запятыми
+						tags = $tagInput.val().split(",");
+						toDoObjects.push({"description":description, "tags":tags});
+						// обновление toDos
+						toDos = toDoObjects.map(function (toDo) {
+							return toDo.description;
+						});
+						$input.val("");
+						$tagInput.val("");
+					});
+				$("main .content").append($inputLabel).append($input).append($tagLabel).append($tagInput).append($button);
 				}
 				return false;
 			})
