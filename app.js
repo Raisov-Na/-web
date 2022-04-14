@@ -27,6 +27,9 @@ var main = function (toDoObjects) {
 					});
 				}
 				else if ($element.parent().is(":nth-child(3)")) {
+				    console.log("Щелчок на вкладке Теги");
+				}
+				else if ($element.parent().is(":nth-child(4)")) {
 					$(".content").append(
 						'<input type="text" class="inp">' +
 						'<button class="btn">Добавить</button>'
