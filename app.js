@@ -1,5 +1,4 @@
 var organizeByTags = function (toDoObjects) {
-
 	console.log("organizeByTags called");
 	// создание пустого массива для тегов
 	var tags = [];
@@ -60,7 +59,8 @@ var main = function (toDoObjects) {
 					});
 				}
 				else if ($element.parent().is(":nth-child(3)")) {
-				    var organizedByTag = organizeByTags(toDoObjects);
+					var organizedByTag = organizeByTags(toDoObjects);
+
 					organizedByTag.forEach(function (tag) {
 						var $tagName = $("<h3>").text(tag.name),
 						$content = $("<ul>");
@@ -73,19 +73,6 @@ var main = function (toDoObjects) {
 					});
 				}
 				else if ($element.parent().is(":nth-child(4)")) {
-					$(".content").append(
-						'<input type="text" class="inp">' +
-						'<button class="btn">Добавить</button>'
-					);
-					var newToDo;
-					$('.btn').on('click', function () {
-						newToDo = $('.inp').val();
-						if (newToDo != '') {
-							toDos.push(newToDo);
-							alert('Новое задание "' + newToDo + '" успешно добавлено!');
-							$('.inp').val("");
-						}
-					})
 					var $input = $("<input>").addClass("description"),
 					$inputLabel = $("<h5>").text("Новая задача: "),
 					$tagInput = $("<input>").addClass("tags"),
@@ -93,16 +80,23 @@ var main = function (toDoObjects) {
 					$button = $("<button>").text("+");
 					$button.on("click", function () {
 						var description = $input.val(),
-						// разделение в соответствии с запятыми
 						tags = $tagInput.val().split(",");
 						toDoObjects.push({"description":description, "tags":tags});
+						// здесь мы отправляем быстрое сообщение на маршрут списка задач
+						$.post("todos", {}, function (response) {
+						// этот обратный вызов выполняется при ответе сервера
+						console.log("Мы отправили данные и получили ответ сервера!");
+						console.log(response);
+						4
+						});
 						// обновление toDos
 						toDos = toDoObjects.map(function (toDo) {
-							return toDo.description;
+						return toDo.description;
 						});
 						$input.val("");
 						$tagInput.val("");
-					});
+						});
+
 				$("main .content").append($inputLabel).append($input).append($tagLabel).append($tagInput).append($button);
 				}
 				return false;
